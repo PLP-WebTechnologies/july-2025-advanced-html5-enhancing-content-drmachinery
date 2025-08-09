@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Enhanced Form — Demonstration</title>
+  <title>Enhanced Form Website</title>
   <style>
     :root {
       --max-width: 900px;
@@ -153,11 +153,6 @@
                 <td>Priority</td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="4" class="note">Prices shown are sample data for demonstration purposes only.</td>
-              </tr>
-            </tfoot>
           </table>
         </section>
 
@@ -167,17 +162,16 @@
 
           <figure>
             <img src="https://via.placeholder.com/600x300.png?text=Sample+Image" alt="Placeholder graphic showing sample layout" width="100%" height="auto" style="border-radius:8px;">
-            <figcaption class="hint">Figure 1 — Sample placeholder image with descriptive caption for accessibility.</figcaption>
+            <figcaption class="hint">Figure 1 — Sample placeholder image.</figcaption>
           </figure>
 
           <figure style="margin-top:12px;">
             <audio controls preload="metadata" aria-label="Sample audio">
-              <!-- short audio file url is illustrative; if offline, browser shows fallback -->
               <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
               <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
-            <figcaption class="hint">Figure 2 — Short sample audio clip (multiple sources for compatibility).</figcaption>
+            <figcaption class="hint">Figure 2 — Short sample audio clip.</figcaption>
           </figure>
 
           <figure style="margin-top:12px;">
@@ -186,7 +180,7 @@
               <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
               Your browser does not support the video tag.
             </video>
-            <figcaption class="hint">Figure 3 — Short sample video demonstrating the &lt;video&gt; element.</figcaption>
+            <figcaption class="hint">Figure 3 — Short sample video &lt;video&gt; element.</figcaption>
           </figure>
         </section>
       </div>
@@ -199,15 +193,12 @@
           <li>Native constraints: <code>required</code>, <code>pattern</code>, <code>min</code>/<code>max</code>.</li>
           <li>Use semantic media with captions (<code>figure</code>, <code>figcaption</code>).</li>
         </ul>
-        <p class="hint" style="margin-top:8px;">Try submitting the form without completing required fields to see browser validation messages.</p>
       </aside>
     </div>
 
     <!-- The Form -->
     <section aria-labelledby="form-heading">
       <h2 id="form-heading">Complete HTML5 Form</h2>
-      <p class="hint">This form demonstrates a wide range of input types and HTML5 validation attributes. No JavaScript validation is used.</p>
-
       <form action="#" method="post" enctype="multipart/form-data" novalidate>
       
         <!-- Personal information -->
@@ -223,19 +214,19 @@
           <div class="form-row">
             <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
             <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email" aria-describedby="email-help">
-            <div id="email-help" class="hint">A valid email address is required (browser will validate).</div>
+            <div id="email-help" class="hint">A valid email address is required.</div>
           </div>
 
           <div class="form-row">
             <label for="phone">Phone number</label>
             <input id="phone" name="phone" type="tel" placeholder="+254712345678" pattern="^\+?\d{7,15}$" autocomplete="tel" aria-describedby="phone-help">
-            <div id="phone-help" class="hint">Include country code, digits only (7–15 digits). Example: +254712345678</div>
+            <div id="phone-help" class="hint">Include country code, digits only (7 to 15 digits). Example: +254 712 345 678</div>
           </div>
 
           <div class="form-row">
             <label for="birthdate">Date of birth</label>
             <input id="birthdate" name="birthdate" type="date" min="1900-01-01" max="2025-12-31" autocomplete="bday" aria-describedby="birth-help">
-            <div id="birth-help" class="hint">Select a date between 1900 and 2025 (sample range).</div>
+            <div id="birth-help" class="hint">Select a date between 1900 and 2025.</div>
           </div>
 
         </fieldset>
@@ -247,7 +238,7 @@
           <div class="form-row">
             <label for="username">Username <span class="required" aria-hidden="true">*</span></label>
             <input id="username" name="username" type="text" required minlength="4" maxlength="20" pattern="^[A-Za-z0-9_]{4,20}$" placeholder="letters, numbers, underscore" autocomplete="username" aria-describedby="user-help" />
-            <div id="user-help" class="hint">4–20 chars: letters, numbers, underscore. No spaces.</div>
+            <div id="user-help" class="hint">4 to 20 characters: letters, numbers, underscore. No spaces.</div>
           </div>
 
           <div class="form-row">
@@ -316,9 +307,9 @@
           </div>
 
           <div class="form-row">
-            <label for="last-active">Last active (local)</label>
+            <label for="last-active">Last active</label>
             <input id="last-active" name="last-active" type="datetime-local" autocomplete="off">
-            <div class="hint">Local date & time input (browser shows native picker in many browsers).</div>
+            <div class="hint">Local date & time input.</div>
           </div>
 
           <div class="form-row">
@@ -340,9 +331,9 @@
           <legend>Static / Read-only</legend>
 
           <div class="form-row">
-            <label for="ref">Referral code (readonly)</label>
+            <label for="ref">Referral code</label>
             <input id="ref" name="ref" type="text" value="REF-2025-001" readonly aria-readonly="true">
-            <div class="hint">This field is readonly and cannot be edited by the user.</div>
+            <div class="hint">This field is read only and cannot be edited by the user.</div>
           </div>
 
         </fieldset>
@@ -360,7 +351,7 @@
     </section>
 
     <footer>
-      <p>Created as a demonstration of semantic HTML5, lists, tables, media elements, and rich form validation attributes. No JavaScript validation is used.</p>
+      <p>Website with HTML5, lists, tables, media elements, and rich form validation attributes.</p>
     </footer>
   </main>
 </body>

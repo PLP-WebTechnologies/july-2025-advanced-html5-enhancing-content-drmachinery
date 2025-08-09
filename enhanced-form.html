@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enhanced Form — Demonstration</title>
+  <style>
+    :root {
+      --max-width: 900px;
+      --accent: #0b66a6;
+      --muted: #666;
+      --bg: #f7f9fb;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.5;
+      background: var(--bg);
+      color: #111;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      width: 100%;
+      max-width: var(--max-width);
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(20,30,40,0.07);
+    }
+    header h1 { margin: 0 0 4px; font-size: 1.5rem; }
+    header p { margin: 0 0 16px; color: var(--muted); }
+    section { margin-bottom: 24px; }
+    h2 { color: var(--accent); font-size: 1.15rem; margin-bottom: 8px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 16px;
+    }
+    .card {
+      background: #fbfdff;
+      border: 1px solid #e6eff6;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #e6eef6;
+      padding: 8px;
+      text-align: left;
+    }
+    th { background: #eef8ff; }
+    label { display: inline-block; margin-bottom: 6px; font-weight: 600; }
+    .form-row { margin-bottom: 12px; }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="time"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cfe6f6;
+      border-radius: 6px;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .hint { font-size: 0.875rem; color: var(--muted); }
+    fieldset { border: 1px solid #e1eef7; padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+    legend { font-weight: 700; padding: 0 6px; }
+    .actions { display: flex; gap: 8px; align-items: center; }
+    button { padding: 8px 12px; border-radius: 8px; border: none; cursor: pointer; font-weight: 700; }
+    .btn-submit { background: var(--accent); color: #fff; }
+    .btn-reset { background: transparent; color: var(--accent); border: 1px solid #cfe6f6; }
+    .required { color: #c0392b; margin-left: 4px; font-weight: 700; }
+    .note { font-size: 0.875rem; color: var(--muted); margin-top: 8px; }
+    footer { font-size: 0.85rem; color: var(--muted); margin-top: 18px; }
+    @media (max-width: 880px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Enhanced Form: Lists, Tables, Media & HTML5 Validation</h1>
+      <p>Demonstration page that uses semantic HTML5 structure, accessible controls, and native validation attributes.</p>
+    </header>
+
+    <!-- Overview with lists -->
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">What this page shows</h2>
+      <p>This brief list highlights the elements used on the page.</p>
+
+      <ul>
+        <li><strong>Lists:</strong> ordered and unordered lists for structure.</li>
+        <li><strong>Tables:</strong> tabular sample data with semantic headings.</li>
+        <li><strong>Media:</strong> an image, an audio clip and an embeddable video — all with captions.</li>
+        <li><strong>Form:</strong> multiple field types, labels, fieldsets, and HTML5 validation attributes.</li>
+      </ul>
+
+      <ol>
+        <li>Semantic layout (header, main, sections, footer).</li>
+        <li>Accessibility: labels tied to controls and keyboard-friendly structure.</li>
+        <li>Native HTML5 validation: <code>required</code>, <code>type</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>minlength</code>, etc.</li>
+      </ol>
+    </section>
+
+    <div class="grid" role="region" aria-label="Content and media area">
+      <div>
+        <!-- Table -->
+        <section aria-labelledby="data-heading" class="card">
+          <h2 id="data-heading">Sample Pricing Table</h2>
+          <p class="hint">A small table used to demonstrate semantic table markup and captions.</p>
+
+          <table>
+            <caption style="caption-side: top; text-align: left; font-weight:700; padding:6px 0;">Subscription Plans</caption>
+            <thead>
+              <tr>
+                <th scope="col">Plan</th>
+                <th scope="col">Monthly Price (USD)</th>
+                <th scope="col">Max Users</th>
+                <th scope="col">Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Starter</td>
+                <td>Free</td>
+                <td>1</td>
+                <td>Email</td>
+              </tr>
+              <tr>
+                <td>Team</td>
+                <td>19</td>
+                <td>5</td>
+                <td>Email & Chat</td>
+              </tr>
+              <tr>
+                <td>Business</td>
+                <td>49</td>
+                <td>20</td>
+                <td>Priority</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4" class="note">Prices shown are sample data for demonstration purposes only.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+
+        <!-- Media: Image, audio, video -->
+        <section aria-labelledby="media-heading" class="card" style="margin-top:12px;">
+          <h2 id="media-heading">Media Examples</h2>
+
+          <figure>
+            <img src="https://via.placeholder.com/600x300.png?text=Sample+Image" alt="Placeholder graphic showing sample layout" width="100%" height="auto" style="border-radius:8px;">
+            <figcaption class="hint">Figure 1 — Sample placeholder image with descriptive caption for accessibility.</figcaption>
+          </figure>
+
+          <figure style="margin-top:12px;">
+            <audio controls preload="metadata" aria-label="Sample audio">
+              <!-- short audio file url is illustrative; if offline, browser shows fallback -->
+              <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+              <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <figcaption class="hint">Figure 2 — Short sample audio clip (multiple sources for compatibility).</figcaption>
+          </figure>
+
+          <figure style="margin-top:12px;">
+            <video controls width="100%" preload="metadata" aria-label="Sample video">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption class="hint">Figure 3 — Short sample video demonstrating the &lt;video&gt; element.</figcaption>
+          </figure>
+        </section>
+      </div>
+
+      <aside aria-labelledby="keynotes-heading" class="card" role="complementary">
+        <h2 id="keynotes-heading">Quick Checklist</h2>
+        <ul>
+          <li>Labels bound to inputs (<code>for</code> + <code>id</code>).</li>
+          <li>Fieldsets + legends for grouped controls (radio, checkboxes).</li>
+          <li>Native constraints: <code>required</code>, <code>pattern</code>, <code>min</code>/<code>max</code>.</li>
+          <li>Use semantic media with captions (<code>figure</code>, <code>figcaption</code>).</li>
+        </ul>
+        <p class="hint" style="margin-top:8px;">Try submitting the form without completing required fields to see browser validation messages.</p>
+      </aside>
+    </div>
+
+    <!-- The Form -->
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">Complete HTML5 Form</h2>
+      <p class="hint">This form demonstrates a wide range of input types and HTML5 validation attributes. No JavaScript validation is used.</p>
+
+      <form action="#" method="post" enctype="multipart/form-data" novalidate>
+      
+        <!-- Personal information -->
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <div class="form-row">
+            <label for="fullname">Full name <span class="required" aria-hidden="true">*</span></label>
+            <input id="fullname" name="fullname" type="text" placeholder="E.g., Jane Doe" required minlength="3" autocomplete="name" aria-describedby="fullname-help">
+            <div id="fullname-help" class="hint">Enter your full name (at least 3 characters).</div>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email" aria-describedby="email-help">
+            <div id="email-help" class="hint">A valid email address is required (browser will validate).</div>
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+254712345678" pattern="^\+?\d{7,15}$" autocomplete="tel" aria-describedby="phone-help">
+            <div id="phone-help" class="hint">Include country code, digits only (7–15 digits). Example: +254712345678</div>
+          </div>
+
+          <div class="form-row">
+            <label for="birthdate">Date of birth</label>
+            <input id="birthdate" name="birthdate" type="date" min="1900-01-01" max="2025-12-31" autocomplete="bday" aria-describedby="birth-help">
+            <div id="birth-help" class="hint">Select a date between 1900 and 2025 (sample range).</div>
+          </div>
+
+        </fieldset>
+
+        <!-- Account details -->
+        <fieldset>
+          <legend>Account Details</legend>
+
+          <div class="form-row">
+            <label for="username">Username <span class="required" aria-hidden="true">*</span></label>
+            <input id="username" name="username" type="text" required minlength="4" maxlength="20" pattern="^[A-Za-z0-9_]{4,20}$" placeholder="letters, numbers, underscore" autocomplete="username" aria-describedby="user-help" />
+            <div id="user-help" class="hint">4–20 chars: letters, numbers, underscore. No spaces.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="pwd">Password <span class="required" aria-hidden="true">*</span></label>
+            <input id="pwd" name="password" type="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d).+$" placeholder="At least 8 characters, include letters & numbers" aria-describedby="pwd-help" autocomplete="new-password" />
+            <div id="pwd-help" class="hint">Must be at least 8 characters and include letters and numbers.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="website">Personal website</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url" aria-describedby="url-help" />
+            <div id="url-help" class="hint">Enter a valid URL starting with http:// or https://</div>
+          </div>
+
+        </fieldset>
+
+        <!-- Preferences -->
+        <fieldset>
+          <legend>Preferences & Consent</legend>
+
+          <div class="form-row">
+            <label for="plan">Choose a plan</label>
+            <select id="plan" name="plan" autocomplete="off">
+              <option value="starter">Starter — Free</option>
+              <option value="team">Team — $19 / month</option>
+              <option value="business">Business — $49 / month</option>
+            </select>
+          </div>
+
+          <div class="form-row" role="group" aria-labelledby="contact-method-label">
+            <span id="contact-method-label" style="display:block; font-weight:700; margin-bottom:6px;">Preferred contact method</span>
+            <label>
+              <input type="radio" name="contact" value="email" checked> Email
+            </label>
+            <label style="margin-left:12px;">
+              <input type="radio" name="contact" value="phone"> Phone
+            </label>
+            <label style="margin-left:12px;">
+              <input type="radio" name="contact" value="none"> No contact
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label for="newsletter">
+              <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
+              Subscribe to newsletter
+            </label>
+            <div class="hint">You can uncheck this if you do not want promotional emails.</div>
+          </div>
+
+        </fieldset>
+
+        <!-- More inputs: numbers, time, file, textarea -->
+        <fieldset>
+          <legend>Additional Data</legend>
+
+          <div class="form-row">
+            <label for="team-size">Team size</label>
+            <input id="team-size" name="team-size" type="number" min="1" max="500" step="1" value="1" aria-describedby="team-help">
+            <div id="team-help" class="hint">Enter an integer between 1 and 500.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="meet">Preferred meeting time</label>
+            <input id="meet" name="meet" type="time" autocomplete="off">
+          </div>
+
+          <div class="form-row">
+            <label for="last-active">Last active (local)</label>
+            <input id="last-active" name="last-active" type="datetime-local" autocomplete="off">
+            <div class="hint">Local date & time input (browser shows native picker in many browsers).</div>
+          </div>
+
+          <div class="form-row">
+            <label for="profile-pic">Upload profile photo</label>
+            <input id="profile-pic" name="profile-pic" type="file" accept="image/*" aria-describedby="file-help">
+            <div id="file-help" class="hint">Accepted: images only. File size enforcement requires server-side checks.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="bio">Short bio</label>
+            <textarea id="bio" name="bio" placeholder="Tell us a bit about yourself..." maxlength="500" aria-describedby="bio-help"></textarea>
+            <div id="bio-help" class="hint">Max 500 characters (enforced by <code>maxlength</code>).</div>
+          </div>
+
+        </fieldset>
+
+        <!-- Readonly and hidden-ish information -->
+        <fieldset>
+          <legend>Static / Read-only</legend>
+
+          <div class="form-row">
+            <label for="ref">Referral code (readonly)</label>
+            <input id="ref" name="ref" type="text" value="REF-2025-001" readonly aria-readonly="true">
+            <div class="hint">This field is readonly and cannot be edited by the user.</div>
+          </div>
+
+        </fieldset>
+
+        <!-- Accessibility-friendly submission area -->
+        <div class="actions" role="group" aria-label="Form actions">
+          <button type="submit" class="btn-submit">Submit form</button>
+          <button type="reset" class="btn-reset">Reset</button>
+          <p class="note" style="margin-left:auto;">Fields marked <span class="required" aria-hidden="true">*</span> are required.</p>
+        </div>
+
+        <p class="hint" style="margin-top:10px;">Note: Native validation messages are shown by the browser. Remove the <code>novalidate</code> attribute if present to enable them.</p>
+
+      </form>
+    </section>
+
+    <footer>
+      <p>Created as a demonstration of semantic HTML5, lists, tables, media elements, and rich form validation attributes. No JavaScript validation is used.</p>
+    </footer>
+  </main>
+</body>
+</html>
